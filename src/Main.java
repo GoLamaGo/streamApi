@@ -13,14 +13,19 @@ public class Main {
         }
 //        resultCollection.forEach(System.out::println);
 
-        for (int i = 1; i < resultCollection.size(); i++) {
-            if (resultCollection.get(i) < resultCollection.get(i - 1)) {
-                int temp = resultCollection.get(i - 1);
-                resultCollection.set(i - 1, resultCollection.get(i));
-                resultCollection.set(i, temp);
+        boolean needIteration = true;
+        while (needIteration) {
+            needIteration = false;
+
+            for (int i = 1; i < resultCollection.size(); i++) {
+                if (resultCollection.get(i) < resultCollection.get(i - 1)) {
+                    int tmp = resultCollection.get(i);
+                    resultCollection.set(i, resultCollection.get(i - 1));
+                    resultCollection.set(i - 1, tmp);
+                    needIteration = true;
+                }
             }
         }
-
         for (Integer item : resultCollection) {
             System.out.println(item);
         }
