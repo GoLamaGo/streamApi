@@ -33,7 +33,6 @@ public class Main {
                 .filter(person -> (person.getSex().equals(Sex.MAN) && person.getAge() >= 18 && person.getAge() < 65) ||
                         (person.getSex().equals(Sex.WOMAN) && person.getAge() >= 18 && person.getAge() < 60))
                 .filter(person -> person.getEducation().equals(Education.HIGHER))
-                .limit(15)
                 .collect(Collectors.toList());
 
     }
